@@ -1,0 +1,19 @@
+{
+  "node_pairs": [
+    {
+      "id": "1",
+      "start_node": "gamma",
+      "end_node": "theta"
+    },
+    {
+      "id": "2",
+      "start_node": "beta",
+      "end_node": "theta"
+    },
+    {
+      "id": "3",
+      "start_node": "theta",
+      "end_node": "lambda"
+    }
+  ]
+}
