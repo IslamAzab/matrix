@@ -25,7 +25,7 @@ class Loophole < Source
     end
 
     puts routes
-    puts
+    puts "-"*50
     routes
   end
 
@@ -52,8 +52,8 @@ class Loophole < Source
     node_pairs
   end
 
-  def format_time time
-    # time.strftime('%Y-%m-%dT%H:%M:%S')
-    time.gsub("Z","")
+  def format_time time_string
+    # time_string.strftime('%Y-%m-%dT%H:%M:%S')
+    time_string.gsub("Z","")
   end
 end
