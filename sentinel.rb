@@ -20,16 +20,12 @@ class Sentinel < Source
     routes = []
 
     paths.each do |route_id, nodes|
-      puts "route_id: #{route_id}"
+      # sort nodes by index to maintain nodes order
       nodes.sort_by! { |node| node[:index] }
       nodes.each_with_index do |node1, i|
         route = {}
         node2 = nodes[i+1]
         if node1 && node2
-          puts "\t#{node1[:node]} --> #{node2[:node]}"
-          puts "\t#{node1[:time]} --> #{node2[:time]}"
-
-
           route[:start_node] = node1[:node]
           route[:start_time] = node1[:time]
 
@@ -38,7 +34,7 @@ class Sentinel < Source
 
           routes << route
         else
-          puts "\t#{node1[:node]}"
+          # we reached an end node
         end
       end
     end

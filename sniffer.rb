@@ -11,10 +11,6 @@ class Sniffer < Source
       end
     end
 
-    puts sequences
-    puts "-"*50
-    puts
-
     node_times = {}
     custom_csv("#{@path}/node_times.csv").each do |row|
       node_time_id             = row[0].strip.gsub("\"","")
@@ -28,10 +24,6 @@ class Sniffer < Source
         duration_in_milliseconds: duration_in_milliseconds
       }
     end
-
-    puts node_times
-    puts "-"*50
-    puts
 
     routes = []
     custom_csv("#{@path}/routes.csv").each do |row|
