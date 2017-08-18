@@ -12,7 +12,7 @@ require "./loophole"
 class Matrix
 
   def initialize
-    config = YAML.load_file('config.yml')
+    config      = YAML.load_file('config.yml')
     @passphrase = config["passphrase"]
     @uri        = config["uri"]
   end

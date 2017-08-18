@@ -32,7 +32,7 @@ class Sentinel < Source
       sentinel[:route_id] = clean(row[0])
       sentinel[:node]     = clean(row[1])
       sentinel[:index]    = clean(row[2])
-      sentinel[:time]     = format_time((clean(row[3])))
+      sentinel[:time]     = parse_time((clean(row[3])))
 
       if paths[sentinel[:route_id]]
         paths[sentinel[:route_id]] << sentinel
@@ -43,12 +43,4 @@ class Sentinel < Source
     paths
   end
 
-  def clean data
-    data.strip.gsub("\"","")
-  end
-
-  def format_time time_string
-    Time.parse(time_string).utc.iso8601.gsub("Z","")
-    # Time.parse(time_string).utc.strftime('%Y-%m-%dT%H:%M:%S')
-  end
 end

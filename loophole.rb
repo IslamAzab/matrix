@@ -52,8 +52,4 @@ class Loophole < Source
     node_pairs
   end
 
-  def format_time time_string
-    # time_string.strftime('%Y-%m-%dT%H:%M:%S')
-    time_string.gsub("Z","")
-  end
 end
