@@ -7,8 +7,8 @@ class Sentinel < Source
       sentinel[:route_id] = row[0].strip.gsub("\"","")
       sentinel[:node]     = row[1].strip.gsub("\"","")
       sentinel[:index]    = row[2].strip.gsub("\"","")
-      # sentinel[:time]     = Time.parse(row[3].strip.gsub("\"","")).utc.iso8601.gsub("Z","")
       sentinel[:time]     = Time.parse(row[3].strip.gsub("\"","")).utc.strftime('%Y-%m-%dT%H:%M:%S')
+      # sentinel[:time]     = Time.parse(row[3].strip.gsub("\"","")).utc.iso8601.gsub("Z","")
 
       if paths[sentinel[:route_id]]
         paths[sentinel[:route_id]] << sentinel

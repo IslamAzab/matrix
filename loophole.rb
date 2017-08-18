@@ -1,7 +1,5 @@
 class Loophole < Source
   def parse
-    paths = {}
-
     node_pairs = {}
 
     node_pairs_file = File.read("#{@path}/node_pairs.json")
