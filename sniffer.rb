@@ -52,7 +52,8 @@ class Sniffer < Source
             end_node                 = node_time[:end_node]
             duration_in_milliseconds = node_time[:duration_in_milliseconds]
 
-            end_time   = (time + duration_in_milliseconds.to_f/1000).iso8601.gsub("Z","")
+            time          = (time + duration_in_milliseconds.to_f/1000)
+            end_time      = time.iso8601.gsub("Z","")
 
             r[:start_node] = start_node
             r[:end_node]   = end_node
@@ -60,6 +61,9 @@ class Sniffer < Source
             r[:start_time] = start_time
             r[:end_time]   = end_time
             routes << r
+
+            # the next hop in route should start from last time
+            start_time = end_time
           else
             puts "node_time_id: #{node_time_id} is missing!"
           end
