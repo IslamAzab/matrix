@@ -43,7 +43,7 @@ class Sniffer < Source
       start_time = time.iso8601.gsub("Z","")
 
       if sequences[route_id]
-        sequences[route_id].each do |node_time_id|
+        sequences[route_id].sort.each do |node_time_id|
           node_time = node_times[node_time_id]
 
           if node_time
