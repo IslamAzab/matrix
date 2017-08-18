@@ -22,20 +22,16 @@ class Sentinel < Source
     paths.each do |route_id, nodes|
       # sort nodes by index to maintain nodes order
       nodes.sort_by! { |node| node[:index] }
-      nodes.each_with_index do |node1, i|
+      # iterate over every two consecutive nodes
+      nodes.each_cons(2) do |node1, node2|
         route = {}
-        node2 = nodes[i+1]
-        if node1 && node2
-          route[:start_node] = node1[:node]
-          route[:start_time] = node1[:time]
+        route[:start_node] = node1[:node]
+        route[:start_time] = node1[:time]
 
-          route[:end_node]   = node2[:node]
-          route[:end_time]   = node2[:time]
+        route[:end_node]   = node2[:node]
+        route[:end_time]   = node2[:time]
 
-          routes << route
-        else
-          # we reached an end node
-        end
+        routes << route
       end
     end
 
